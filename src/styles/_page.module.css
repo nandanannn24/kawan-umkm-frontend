@@ -1,0 +1,53 @@
+/* src/styles/_page.module.css */
+
+.pageWithBg {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.bgElements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.bgElement {
+    position: absolute;
+    opacity: 0.15;
+    filter: blur(2px);
+    animation: float 15s ease-in-out infinite;
+}
+
+.element1 {
+    top: 10%;
+    left: 5%;
+    width: 150px;
+    animation-delay: 0s;
+}
+
+.element2 {
+    top: 60%;
+    right: 5%;
+    width: 200px;
+    animation-delay: -5s;
+}
+
+.element3 {
+    bottom: 15%;
+    left: 15%;
+    width: 120px;
+    animation-delay: -10s;
+}
+
+.element4 {
+    top: 20%;
+    right: 20%;
+    width: 180px;
+    animation-delay: -2.5s;
+}

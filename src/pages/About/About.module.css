@@ -1,0 +1,403 @@
+/* src/pages/About/About.module.css */
+@import '../../styles/_page.module.css';
+
+.about {
+    min-height: 100vh;
+    position: relative;
+    /* Diperlukan untuk positioning elemen anak */
+    overflow: hidden;
+    /* Mencegah elemen keluar dari container */
+}
+
+.about {
+    min-height: 100vh;
+    background: linear-gradient(135deg,
+            var(--bg-dark) 0%,
+            rgba(139, 92, 246, 0.1) 50%,
+            var(--bg-dark) 100%);
+    padding: 4rem 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.bgElements {
+    display: none;
+}
+
+.bgElement {
+    position: absolute;
+    opacity: 0.2;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.element1 {
+    top: 10%;
+    left: 5%;
+    width: 150px;
+}
+
+.element2 {
+    top: 20%;
+    right: 8%;
+    width: 120px;
+}
+
+.element3 {
+    bottom: 15%;
+    left: 10%;
+    width: 100px;
+}
+
+.element4 {
+    bottom: 25%;
+    right: 5%;
+    width: 130px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+    /* Jarak antar section */
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.title {
+    font-size: 3.5rem;
+    /* Ukuran font besar dan bersih */
+    font-weight: 800;
+    color: var(--text-primary);
+    line-height: 1.2;
+}
+
+.highlight {
+    color: #A56BFF;
+    /* Warna ungu untuk highlight */
+}
+
+.sectionTitle {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+}
+
+/* Vision Mission */
+.visionMission,
+.logoPhilosophy {
+    display: grid;
+    gap: 2rem;
+    align-items: center;
+    padding: 3rem 0;
+    border-top: 1px solid rgba(165, 107, 255, 0.2);
+    /* Garis aksen ungu tipis */
+    border-bottom: 1px solid rgba(165, 107, 255, 0.2);
+}
+
+.missionList {
+    padding: 0;
+}
+
+.missionItem h3 {
+    font-size: 1.5rem;
+    color: #A56BFF;
+    margin-bottom: 1.5rem;
+}
+
+.missionItem ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.missionItem li {
+    color: var(--text-muted);
+    /* Warna abu-abu untuk paragraf */
+    line-height: 1.6;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.missionItem li::before {
+    content: '✓';
+    /* Mengganti bullet point agar lebih modern */
+    color: #A56BFF;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+/* Team Section */
+.team h2.sectionTitle {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.teamGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.teamMember {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    /* Diperlukan untuk positioning elemen anak */
+    overflow: hidden;
+    /* Mencegah elemen keluar dari kartu */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    /* Transisi halus */
+}
+
+.teamMember:hover {
+    transform: scale(1.03);
+    /* Efek hover scale */
+    border-color: #A56BFF;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.memberBgElement {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 60px;
+    opacity: 0.05;
+    z-index: 0;
+    pointer-events: none;
+    transform: rotate(15deg);
+    transition: opacity 0.3s ease;
+}
+
+.memberImage {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    border: 3px solid #A56BFF;
+}
+
+.memberImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.teamMember:hover .memberImage img {
+    transform: scale(1.1);
+}
+
+.memberInfo h3 {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.role {
+    color: #A56BFF;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.description {
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/* Logo Philosophy */
+.philosophyContent {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.logoDisplay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.logoImage {
+    width: 100%;
+    max-width: 300px;
+}
+
+.logoImage {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 20px;
+    /* Border radius pada gambar */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    /* Shadow halus */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.logoImage:hover {
+    transform: scale(1.05);
+    /* Efek hover */
+    opacity: 0.9;
+}
+
+.philosophyTextGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* Default 1 kolom untuk mobile */
+    /* Default untuk mobile */
+    gap: 2rem;
+}
+
+.philosophyItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+}
+
+.philosophyIcon {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+.philosophyItem h4 {
+    font-size: 1.25rem;
+    color: #A56BFF;
+    margin-bottom: 0.5rem;
+}
+
+.philosophyItem p {
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+    .about {
+        padding: 6rem 2rem;
+    }
+
+    .title {
+        font-size: 4rem;
+    }
+
+    .visionMission,
+    .logoPhilosophy {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        gap: 4rem;
+        text-align: left;
+    }
+
+    .missionItem ul {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem 2rem;
+    }
+
+    .teamGrid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+    }
+
+    .logoPhilosophy {
+        display: block;
+        /* Reset flex/grid dari atas */
+    }
+
+    .philosophyGrid {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        /* 2 kolom: logo kiri, teks kanan */
+        gap: 4rem;
+        align-items: center;
+    }
+
+    .philosophyItem {
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .philosophyTextGrid {
+        grid-template-columns: 1fr 1fr;
+        /* 2x2 grid untuk teks filosofi */
+        gap: 2.5rem;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+    .title {
+        font-size: 5rem;
+    }
+}
+
+.mission {
+    padding: 4rem 1rem;
+    background: linear-gradient(135deg,
+            var(--bg-dark) 0%,
+            rgba(139, 92, 246, 0.1) 50%,
+            var(--bg-dark) 100%);
+}
+
+.missionGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.missionCard {
+    padding: 2.5rem;
+    background: var(--bg-surface);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    position: relative;
+}
+
+.missionLeft {
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.05), rgba(124, 58, 237, 0.1));
+    border-color: rgba(139, 92, 246, 0.2);
+}
+
+.missionRight {
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(124, 58, 237, 0.05));
+    border-color: rgba(139, 92, 246, 0.2);
+}
+
+.missionTitle {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.missionText {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    text-align: center;
+}

@@ -1,0 +1,245 @@
+/* Container utama halaman */
+.pageContainer {
+    min-height: 100vh;
+    padding: 2rem 1rem;
+    background: linear-gradient(135deg, var(--bg-dark) 0%, rgba(139, 92, 246, 0.1) 50%, var(--bg-dark) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Container untuk konten */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Wrapper untuk form */
+.formWrapper {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Judul */
+.title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--primary-purple);
+    background: linear-gradient(135deg, var(--primary-light), var(--primary-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Pesan sukses/error */
+.successMessage {
+    background: rgba(34, 197, 94, 0.1);
+    color: #22c55e;
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 2rem;
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    backdrop-filter: blur(10px);
+    text-align: center;
+}
+
+.errorMessage {
+    background: rgba(239, 68, 68, 0.1);
+    color: #EF4444;
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 2rem;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    backdrop-filter: blur(10px);
+    text-align: center;
+}
+
+/* Form utama */
+.form {
+    background: linear-gradient(135deg,
+            rgba(128, 0, 255, 0.12) 0%,
+            rgba(255, 0, 255, 0.08) 50%,
+            rgba(0, 100, 255, 0.06) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 24px;
+    padding: 3rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Grid layout untuk form */
+.formGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Form group */
+.formGroup {
+    display: flex;
+    flex-direction: column;
+}
+
+.formGroup label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+/* Input fields */
+.input,
+.textarea,
+.fileInput {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--border-radius);
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    box-sizing: border-box;
+}
+
+.input:focus,
+.textarea:focus {
+    outline: none;
+    border-color: var(--primary-purple);
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.textarea {
+    resize: vertical;
+    min-height: 100px;
+    font-family: inherit;
+}
+
+.fileInput {
+    padding: 0.5rem;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* Style khusus untuk select */
+select.input {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1em;
+}
+
+select.input option {
+    background: var(--bg-dark);
+    color: var(--text-primary);
+    padding: 0.5rem;
+}
+
+/* Tombol submit */
+.submitButton {
+    width: 100%;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, var(--primary-light), var(--primary-purple));
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.submitButton:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(139, 92, 246, 0.3);
+}
+
+.submitButton:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Container error */
+.errorContainer {
+    text-align: center;
+    padding: 3rem;
+    background: rgba(239, 68, 68, 0.1);
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.backButton {
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--primary-purple);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.backButton:hover {
+    background: var(--primary-light);
+}
+
+/* Full width untuk elemen tertentu */
+.fullWidth {
+    grid-column: 1 / -1;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+    .pageContainer {
+        padding: 3rem 1rem;
+    }
+
+    .formGrid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .form {
+        padding: 3rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .form {
+        padding: 4rem;
+    }
+
+    .title {
+        font-size: 3rem;
+    }
+}
+
+/* Mobile optimization */
+@media (max-width: 480px) {
+    .pageContainer {
+        padding: 1rem 0.5rem;
+    }
+
+    .form {
+        padding: 1.5rem;
+        border-radius: 16px;
+    }
+
+    .title {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+}

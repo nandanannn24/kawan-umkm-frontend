@@ -1,0 +1,22 @@
+/* src/components/FadeIn/FadeIn.module.css */
+.fadeInSection {
+    opacity: 0;
+    transition: opacity 0.6s cubic-bezier(0.645, 0.045, 0.355, 1), transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.fadeInSection.up {
+    transform: translateY(20px);
+}
+
+.fadeInSection.left {
+    transform: translateX(-20px);
+}
+
+.fadeInSection.right {
+    transform: translateX(20px);
+}
+
+.fadeInSection.isVisible {
+    opacity: 1;
+    transform: translate(0, 0);
+}

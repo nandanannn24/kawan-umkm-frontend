@@ -1,0 +1,311 @@
+/* src/pages/Login/Login.module.css */
+.login {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+    background: linear-gradient(135deg,
+            var(--bg-dark) 0%,
+            rgba(139, 92, 246, 0.1) 50%,
+            var(--bg-dark) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* src/pages/Login/Login.module.css - UPDATE */
+.login {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+    position: relative;
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+}
+
+.loginCard {
+    background: var(--bg-card);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+/* ... existing styles tetap ... */
+
+.bgElements {
+    display: none;
+}
+
+.bgElement {
+    position: absolute;
+    opacity: 0.2;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.element1 {
+    top: 10%;
+    left: 5%;
+    width: 150px;
+}
+
+.element2 {
+    top: 20%;
+    right: 8%;
+    width: 120px;
+}
+
+.element3 {
+    bottom: 15%;
+    left: 10%;
+    width: 100px;
+}
+
+.element4 {
+    bottom: 25%;
+    right: 5%;
+    width: 130px;
+}
+
+
+.container {
+    width: 100%;
+    max-width: 400px;
+}
+
+.loginCard {
+    background: var(--bg-card);
+    padding: 2.5rem 2rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.logo {
+    margin-bottom: 2rem;
+}
+
+.formLogoImage {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1rem;
+}
+
+.logoText {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--primary-purple), var(--purple-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: var(--text-primary);
+    font-weight: 700;
+}
+
+.error {
+    background: rgba(239, 68, 68, 0.1);
+    color: #EF4444;
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    font-size: 0.875rem;
+}
+
+.loginForm {
+    margin-bottom: 2rem;
+}
+
+.formGroup {
+    margin-bottom: 1.5rem;
+}
+
+.passwordWrapper {
+    position: relative;
+}
+
+.input {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    /* Garis ungu tipis */
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    background: var(--bg-dark);
+    /* Background hitam pekat */
+    color: var(--text-secondary);
+    /* Teks putih keabuan */
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.1);
+    /* Efek glow awal */
+}
+
+.input:focus {
+    outline: none;
+    border-color: var(--primary-purple);
+    /* Garis lebih terang saat fokus */
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+    /* Efek glow lebih kuat */
+}
+
+.togglePassword {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.25rem;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.togglePassword img {
+    width: 24px;
+    height: 24px;
+}
+
+.input::placeholder {
+    color: var(--text-muted);
+}
+
+.loginButton {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: var(--border-radius);
+}
+
+.divider {
+    text-align: center;
+    margin: 2rem 0;
+    position: relative;
+    color: var(--text-muted);
+    font-size: 0.875rem;
+}
+
+.divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--border-color);
+}
+
+.divider span {
+    background: var(--bg-card);
+    padding: 0 1rem;
+}
+
+.socialLogin {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.facebookBtn,
+.googleBtn {
+    padding: 1rem;
+    font-weight: 500;
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    transition: all 0.3s ease;
+}
+
+.facebookBtn {
+    background: #1877F2;
+    color: white;
+    border: none;
+}
+
+.facebookBtn:hover {
+    background: #166FE5;
+    transform: translateY(-1px);
+}
+
+.googleBtn {
+    background: var(--bg-surface);
+    color: var(--text-primary);
+    border: 2px solid var(--border-color);
+}
+
+.googleBtn:hover {
+    border-color: var(--primary-purple);
+    transform: translateY(-1px);
+}
+
+.socialIcon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+.registerLink {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.registerLink a {
+    color: var(--primary-purple);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.registerLink a:hover {
+    text-decoration: underline;
+}
+
+.footer {
+    border-top: 1px solid var(--border-color);
+    padding-top: 2rem;
+}
+
+.footerText {
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+.footerText strong {
+    color: var(--text-primary);
+}
+
+.forgotPassword {
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.forgotPassword a {
+    color: var(--primary-purple);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.forgotPassword a:hover {
+    text-decoration: underline;
+}
+
+.passwordInput {
+    width: 100%;
+}

@@ -1,0 +1,510 @@
+/* Tambahan CSS untuk dashboard */
+.quickStats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.statItem {
+    background: var(--bg-card);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.statNumber {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--primary-purple);
+    margin-bottom: 0.5rem;
+}
+
+.statLabel {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}
+
+.noActivity {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-muted);
+}
+
+/* Admin Dashboard Styles */
+.pendingSection {
+    background: var(--bg-card);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    margin-top: 2rem;
+}
+
+.pendingList {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.pendingItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: var(--bg-surface);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+}
+
+.pendingInfo h4 {
+    margin-bottom: 0.25rem;
+    color: var(--text-primary);
+}
+
+.pendingInfo p {
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+}
+
+.pendingBadge {
+    background: var(--warning);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.pendingActions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.btn-sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+}
+
+.noPending {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-muted);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .pendingItem {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .pendingActions {
+        width: 100%;
+    }
+
+    .pendingActions .btn {
+        flex: 1;
+    }
+
+    .quickStats {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Dashboard.module.css - TAMBAHKAN INI */
+
+/* UMKMDashboard Styles */
+.umkmDashboard {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.welcomeSection {
+    margin-bottom: 2rem;
+}
+
+.welcomeSection h1 {
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.welcomeSection p {
+    color: var(--text-secondary);
+}
+
+.statsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.statCard {
+    background: var(--bg-card);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.statNumber {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--primary-purple);
+    margin-bottom: 0.5rem;
+}
+
+.statLabel {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}
+
+.tabNavigation {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.tab {
+    padding: 0.75rem 1.5rem;
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.tab:hover {
+    color: var(--text-primary);
+}
+
+.tab.active {
+    color: var(--primary-purple);
+    border-bottom-color: var(--primary-purple);
+}
+
+.tabContent {
+    background: var(--bg-card);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    padding: 2rem;
+}
+
+/* Loading Spinner */
+.loading {
+    text-align: center;
+    padding: 3rem;
+}
+
+.spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-left-color: var(--primary-purple);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* UMKM List Styles */
+.umkmList {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.umkmItem {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--bg-surface);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+}
+
+.umkmItem img,
+.imagePlaceholder {
+    width: 80px;
+    height: 80px;
+    border-radius: var(--border-radius);
+    object-fit: cover;
+}
+
+.imagePlaceholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-dark);
+    font-size: 2rem;
+}
+
+.umkmInfo {
+    flex: 1;
+}
+
+.umkmInfo h4 {
+    margin-bottom: 0.25rem;
+    color: var(--text-primary);
+}
+
+.umkmInfo p {
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+}
+
+.rating {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+}
+
+.emptyState {
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-muted);
+}
+
+.emptyState h4 {
+    margin-bottom: 0.5rem;
+}
+
+/* Section Header */
+.sectionHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+/* UMKM Grid */
+.umkmGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.umkmCard {
+    background: var(--bg-surface);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+.umkmCard img,
+.cardImagePlaceholder {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.cardImagePlaceholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-dark);
+    font-size: 3rem;
+}
+
+.umkmContent {
+    padding: 1.5rem;
+}
+
+.umkmContent h4 {
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.category {
+    color: var(--primary-purple);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.description {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* Reviews Tab */
+.reviewsList {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.umkmReviewsSection {
+    margin-bottom: 2rem;
+}
+
+.umkmReviewsSection h4 {
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.reviewItem {
+    padding: 1rem;
+    background: var(--bg-surface);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+}
+
+.noReviews {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-muted);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .umkmDashboard {
+        padding: 1rem;
+    }
+
+    .tabNavigation {
+        flex-direction: column;
+    }
+
+    .umkmItem {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .sectionHeader {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+
+    .umkmGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .statsGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* User Dashboard Specific Styles */
+.userDashboard {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.dashboardGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.dashboardCard {
+    background: var(--bg-card);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    text-align: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.dashboardCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border-color: var(--primary-purple);
+}
+
+.cardIcon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.dashboardCard h3 {
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    font-size: 1.25rem;
+}
+
+.dashboardCard p {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.activitySection {
+    background: var(--bg-card);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    margin-bottom: 2rem;
+    backdrop-filter: blur(10px);
+}
+
+.activitySection h2 {
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+}
+
+.activityList {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.activityItem {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--bg-surface);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.activityItem:hover {
+    border-color: var(--primary-purple);
+}
+
+.activityIcon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.activityContent {
+    flex: 1;
+}
+
+.activityContent p {
+    margin-bottom: 0.25rem;
+    color: var(--text-primary);
+}
+
+.activityTime {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+}

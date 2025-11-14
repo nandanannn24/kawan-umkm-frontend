@@ -1,0 +1,426 @@
+@keyframes float {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(5deg);
+    }
+
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 30px, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes slideInFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+:root {
+    --primary-purple: #8B5CF6;
+    --purple-dark: #7C3AED;
+    --purple-light: #A78BFA;
+
+    --bg-dark: #0F0F0F;
+    --bg-card: #1A1A1A;
+    --bg-surface: #262626;
+
+    --text-primary: #FFFFFF;
+    --text-secondary: #E5E5E5;
+    --text-muted: #A1A1AA;
+
+    --border-color: #3F3F46;
+    --border-radius: 12px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #8b5cf6;
+    --primary-dark: #7c3aed;
+    --primary-light: #a78bfa;
+    --accent-color: #06b6d4;
+    --accent-light: #67e8f9;
+    --bg-dark: #0f172a;
+    --text-dark: #1e293b;
+    --text-light: #64748b;
+    --background-light: #f8fafc;
+    --border: #e2e8f0;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background-color: var(--bg-dark);
+    overflow-x: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .animate-fade-in,
+    .animate-slide-up,
+    .animate-scale-in {
+        animation: none !important;
+        transition: none !important;
+        transform: none !important;
+        opacity: 1 !important;
+    }
+
+    /* Ensure elements are visible if animations are disabled */
+    .main-content {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
+
+.app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    /* Diperlukan untuk stacking context */
+    perspective: 1200px;
+    /* Menambahkan perspektif untuk efek 3D */
+}
+
+.main-content {
+    flex: 1;
+    /* Ensures main content takes available space */
+    position: relative;
+    /* Diperlukan untuk stacking context animasi halaman */
+}
+
+/* Button Styles */
+.btn {
+    min-height: 50px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 2rem;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.btn-primary {
+    background: var(--primary-purple);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: var(--purple-dark);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--text-primary);
+    border: 2px solid var(--primary-purple);
+}
+
+.btn-secondary:hover {
+    background: rgba(139, 92, 246, 0.1);
+}
+
+/* Container */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* src/styles/globals.css - TAMBAHKAN */
+.app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    perspective: 1200px;
+    background: linear-gradient(135deg,
+            var(--bg-dark) 0%,
+            rgba(139, 92, 246, 0.1) 50%,
+            var(--bg-dark) 100%);
+}
+
+/* Animasi untuk page transitions */
+.page-enter {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.page-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 400ms, transform 400ms;
+}
+
+.page-exit {
+    opacity: 1;
+}
+
+.page-exit-active {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 300ms, transform 300ms;
+}
+
+/* src/styles/globals.css - UPDATE */
+/* ... existing code ... */
+
+/* Smooth Page Transitions */
+.main-content {
+    flex: 1;
+    position: relative;
+    animation: pageEnter 0.6s ease-out;
+}
+
+@keyframes pageEnter {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Enhanced button hover effects */
+.btn {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3);
+}
+
+/* Link hover effects */
+a {
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+a:hover {
+    transform: translateY(-1px);
+}
+
+/* Smooth scrolling for better UX */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Focus styles for accessibility */
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+    outline: 2px solid var(--primary-purple);
+    outline-offset: 2px;
+}
+
+/* src/styles/globals.css - UPDATE */
+/* Reset outline yang mencolok */
+*:focus {
+    outline: none !important;
+}
+
+/* Ganti dengan style yang lebih subtle */
+button:focus,
+.btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.1);
+    transform: scale(1.02);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.1);
+    border-color: var(--primary-purple);
+}
+
+a:focus {
+    outline: none;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+/* Smooth scrolling untuk seluruh aplikasi */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Reset scroll position saat pindah route */
+.main-content {
+    flex: 1;
+    position: relative;
+    animation: pageEnter 0.6s ease-out;
+}
+
+@keyframes pageEnter {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Global fixes untuk animasi */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Force hardware acceleration untuk animasi */
+.hardware-accel {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+/* Prevent cumulative layout shift */
+.fadeIn {
+    min-height: 1px;
+}
+
+/* Fix untuk content yang mungkin hidden */
+[data-visible="false"] {
+    pointer-events: none;
+}
+
+[data-visible="true"] {
+    pointer-events: all;
+}
+
+/* NUCLEAR FIX FOR FLICKER - Tambahkan di globals.css */
+
+/* Force stable rendering */
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    overflow-x: hidden;
+}
+
+/* Fix untuk layout shifts */
+.fadeIn {
+    min-height: 1px;
+    display: block;
+}
+
+/* Force composite layer untuk semua animasi */
+.fadeIn {
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+}
+
+/* Prevent flash of unstyled content */
+body {
+    opacity: 1 !important;
+}
+
+/* Fix untuk Webkit browsers */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    .fadeIn {
+        -webkit-font-smoothing: antialiased;
+        -webkit-tap-highlight-color: transparent;
+    }
+}
+
+/* Reset dan base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+}
+
+.app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    flex: 1;
+    position: relative;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}

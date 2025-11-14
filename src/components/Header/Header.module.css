@@ -1,0 +1,371 @@
+/* src/components/Header/Header.module.css - UPDATE */
+.header {
+    background: linear-gradient(135deg,
+            rgba(128, 0, 255, 0.15) 0%,
+            rgba(255, 0, 255, 0.1) 50%,
+            rgba(0, 100, 255, 0.08) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.logo a {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: var(--text-primary);
+}
+
+.headerLogoImage {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.logoText {
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--text-primary);
+}
+
+/* Desktop Navigation */
+.nav {
+    display: none;
+    position: relative;
+}
+
+.navList {
+    display: flex;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.navLink {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    position: relative;
+    z-index: 2;
+    white-space: nowrap;
+}
+
+.navLink:hover {
+    color: var(--text-primary);
+}
+
+.navLink.active {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+/* Active Indicator - Gradient Textbox */
+.activeIndicator {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    background: linear-gradient(135deg,
+            rgba(139, 92, 246, 0.2) 0%,
+            rgba(167, 139, 250, 0.15) 50%,
+            rgba(199, 210, 254, 0.1) 100%);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50px;
+    box-shadow:
+        0 4px 15px rgba(139, 92, 246, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+}
+
+/* Auth Section */
+.authSection {
+    display: none;
+}
+
+.authButtons {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.loginBtn,
+.registerBtn {
+    min-height: 44px;
+    padding: 0.5rem 1.25rem;
+    font-size: 0.9rem;
+}
+
+.userMenu {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.userName {
+    color: var(--text-primary);
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: linear-gradient(135deg,
+            rgba(128, 0, 255, 0.15) 0%,
+            rgba(255, 0, 255, 0.1) 50%,
+            rgba(0, 100, 255, 0.08) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 0.5rem;
+    min-width: 180px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
+}
+
+.userMenu:hover .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdownItem {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    font-family: inherit;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.dropdownItem:hover {
+    background: rgba(139, 92, 246, 0.1);
+    transform: translateX(5px);
+}
+
+/* Mobile Menu Button */
+.menuButton {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.menuButton span {
+    width: 24px;
+    height: 2px;
+    background-color: var(--text-primary);
+    transition: 0.3s;
+    border-radius: 2px;
+}
+
+/* Mobile Menu */
+.mobileMenu {
+    position: fixed;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 100%);
+    background: linear-gradient(135deg,
+            rgba(128, 0, 255, 0.2) 0%,
+            rgba(255, 0, 255, 0.15) 50%,
+            rgba(0, 100, 255, 0.1) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    padding: 2rem 1rem;
+    z-index: 999;
+}
+
+.mobileMenuOpen {
+    transform: translateX(0);
+}
+
+.mobileNav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.mobileNav a,
+.mobileNav button {
+    padding: 1rem 1.5rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    border-radius: 12px;
+    border: none;
+    background: rgba(255, 255, 255, 0.05);
+    text-align: left;
+    font-size: 1.1rem;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.mobileNav a:hover,
+.mobileNav button:hover {
+    background: rgba(139, 92, 246, 0.1);
+    transform: translateX(5px);
+}
+
+.mobileActive {
+    background: linear-gradient(135deg,
+            rgba(139, 92, 246, 0.2) 0%,
+            rgba(167, 139, 250, 0.15) 50%,
+            rgba(199, 210, 254, 0.1) 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    color: var(--text-primary) !important;
+    font-weight: 600;
+}
+
+.mobileAuth {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobileAuth .btn {
+    justify-content: center;
+    text-align: center;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+    .nav {
+        display: block;
+    }
+
+    .authSection {
+        display: block;
+    }
+
+    .menuButton {
+        display: none;
+    }
+
+    .mobileMenu {
+        display: none;
+    }
+
+    .navList {
+        gap: 0.25rem;
+    }
+
+    .navLink {
+        padding: 0.75rem 1.25rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+    .navList {
+        gap: 0.5rem;
+    }
+
+    .navLink {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+    }
+
+    .userName {
+        font-size: 1rem;
+    }
+}
+
+/* Large Desktop */
+@media (min-width: 1200px) {
+    .navList {
+        gap: 1rem;
+    }
+
+    .navLink {
+        padding: 0.75rem 2rem;
+    }
+}
+
+/* Smooth animations for mobile */
+@media (max-width: 767px) {
+    .mobileMenu {
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .mobileNav a,
+    .mobileNav button {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+}
+
+/* Enhanced focus states for accessibility */
+.navLink:focus,
+.menuButton:focus,
+.dropdownItem:focus,
+.mobileNav a:focus,
+.mobileNav button:focus {
+    outline: 2px solid var(--primary-purple);
+    outline-offset: 2px;
+}
+
+/* Reduced motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+
+    .activeIndicator,
+    .navLink,
+    .dropdown,
+    .mobileMenu,
+    .mobileNav a,
+    .mobileNav button {
+        transition: none;
+    }
+}

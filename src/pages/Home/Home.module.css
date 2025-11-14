@@ -1,0 +1,498 @@
+/* src/pages/Home/Home.module.css */
+.home {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.bgElements {
+    display: none;
+}
+
+.bgElement {
+    position: absolute;
+    opacity: 0.2;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.element1 {
+    top: 10%;
+    left: 5%;
+    width: 150px;
+}
+
+.element2 {
+    top: 20%;
+    right: 8%;
+    width: 120px;
+}
+
+.element3 {
+    bottom: 15%;
+    left: 10%;
+    width: 100px;
+}
+
+.element4 {
+    bottom: 25%;
+    right: 5%;
+    width: 130px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+    background: linear-gradient(135deg,
+            var(--bg-dark) 0%,
+            rgba(139, 92, 246, 0.1) 50%,
+            var(--bg-dark) 100%);
+}
+
+.heroContent {
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+}
+
+.logoSection {
+    margin-bottom: 3rem;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logoText {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: -0.5px;
+}
+
+.logoImage {
+    width: 110px;
+    height: 110px;
+    object-fit: contain;
+}
+
+.heroText {
+    margin-top: 3rem;
+}
+
+.heroSubtitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+.heroActions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2.5rem;
+}
+
+.searchBar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+    width: 100%;
+    max-width: 500px;
+    padding: 0.5rem;
+    background: linear-gradient(90deg, #9B4DFF, #6CECF9);
+    border: none;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.searchBar:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 25px rgba(155, 77, 255, 0.4);
+}
+
+.searchText {
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.searchIconWrapper {
+    background: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.searchIcon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+.registerPrompt {
+    color: var(--text-muted);
+}
+
+.registerPrompt a {
+    color: var(--primary-purple);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* Mission Section - Glass Morphism */
+.missionSection {
+    padding: 100px 0;
+    position: relative;
+    background: linear-gradient(135deg,
+            var(--bg-dark) 0%,
+            rgba(139, 92, 246, 0.1) 50%,
+            var(--bg-dark) 100%);
+}
+
+.missionGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Base Card Styles */
+.missionCardLeft,
+.missionCardRight {
+    background: linear-gradient(135deg,
+            rgba(128, 0, 255, 0.12) 0%,
+            rgba(255, 0, 255, 0.08) 50%,
+            rgba(0, 100, 255, 0.06) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 24px;
+    padding: 40px 30px;
+    position: relative;
+    overflow: hidden;
+    box-shadow:
+        0 10px 40px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+}
+
+/* Specific Card Variations */
+.missionCardLeft {
+    background: linear-gradient(135deg,
+            rgba(147, 51, 234, 0.15) 0%,
+            rgba(139, 92, 246, 0.1) 50%,
+            rgba(124, 58, 237, 0.08) 100%);
+}
+
+.missionCardRight {
+    background: linear-gradient(135deg,
+            rgba(79, 70, 229, 0.15) 0%,
+            rgba(67, 56, 202, 0.1) 50%,
+            rgba(55, 48, 163, 0.08) 100%);
+}
+
+.cardContent {
+    position: relative;
+    z-index: 2;
+}
+
+.missionTitle {
+    font-size: 1.6rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #7B1FA2 0%, #4527A0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 20px;
+    line-height: 1.3;
+}
+
+.missionText {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #9fa7b3;
+    margin: 0;
+}
+
+/* Card Decoration */
+.cardDecoration {
+    position: absolute;
+    bottom: -50px;
+    right: -50px;
+    z-index: 1;
+}
+
+.missionCardLeft .cardDecoration {
+    bottom: -50px;
+    right: -50px;
+}
+
+.missionCardRight .cardDecoration {
+    bottom: -50px;
+    left: -50px;
+}
+
+.decorationCircle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: linear-gradient(135deg,
+            rgba(128, 0, 255, 0.1) 0%,
+            rgba(255, 0, 255, 0.05) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Hover Effects */
+.missionCardLeft:hover,
+.missionCardRight:hover {
+    transform: translateY(-5px);
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+/* Gradient Text Box Section */
+.gradientSection {
+    padding: 80px 0;
+    position: relative;
+    background: linear-gradient(135deg,
+            var(--bg-dark) 0%,
+            rgba(139, 92, 246, 0.1) 50%,
+            var(--bg-dark) 100%);
+}
+
+.gradientBox {
+    background: linear-gradient(135deg,
+            rgba(128, 0, 255, 0.15) 0%,
+            rgba(255, 0, 255, 0.1) 50%,
+            rgba(0, 100, 255, 0.08) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 24px;
+    padding: 60px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow:
+        0 8px 32px 0 rgba(31, 38, 135, 0.15),
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.2);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gradientBox::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.4) 50%,
+            transparent 100%);
+}
+
+.gradientTitle {
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #7B1FA2 0%, #4527A0 50%, #283593 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.gradientText {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #9b9a9a;
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.gradientStats {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+.statItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.statNumber {
+    font-size: 2.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #7B1FA2 0%, #4527A0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+}
+
+.statLabel {
+    font-size: 1rem;
+    color: #666;
+    margin-top: 8px;
+    font-weight: 500;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+    .hero {
+        min-height: 80vh;
+        padding: 4rem 1rem;
+    }
+
+    .heroSubtitle {
+        font-size: 1.75rem;
+    }
+
+    .missionGrid {
+        gap: 40px;
+    }
+
+    .missionCardLeft,
+    .missionCardRight {
+        padding: 50px 40px;
+        min-height: 300px;
+    }
+
+    .missionTitle {
+        font-size: 1.8rem;
+    }
+
+    .gradientSection {
+        padding: 5rem 1rem;
+    }
+
+    .gradientBox {
+        padding: 4rem 3rem;
+    }
+
+    .gradientTitle {
+        font-size: 2.5rem;
+    }
+
+    .statNumber {
+        font-size: 2.5rem;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+    .missionGrid {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+
+    .bgElements {
+        display: block;
+    }
+
+    .gradientStats {
+        gap: 5rem;
+    }
+}
+
+/* Responsive Design for smaller screens */
+@media (max-width: 768px) {
+    .missionSection {
+        padding: 60px 0;
+    }
+
+    .missionCardLeft,
+    .missionCardRight {
+        padding: 30px 25px;
+        min-height: 220px;
+    }
+
+    .gradientBox {
+        padding: 40px 20px;
+        margin: 0 1rem;
+    }
+
+    .gradientTitle {
+        font-size: 2rem;
+    }
+
+    .gradientText {
+        font-size: 1.1rem;
+    }
+
+    .gradientStats {
+        gap: 30px;
+    }
+
+    .statNumber {
+        font-size: 2rem;
+    }
+
+    .statLabel {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .gradientStats {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .gradientTitle {
+        font-size: 1.8rem;
+    }
+
+    .missionCardLeft,
+    .missionCardRight {
+        padding: 25px 20px;
+    }
+
+    .missionTitle {
+        font-size: 1.4rem;
+    }
+
+    .decorationCircle {
+        width: 100px;
+        height: 100px;
+    }
+}

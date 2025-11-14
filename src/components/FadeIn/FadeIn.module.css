@@ -1,0 +1,128 @@
+/* src/components/FadeIn/FadeIn.module.css - RADICAL FIX */
+
+/* RESET COMPLETE - Hapus semua transition conflict */
+.fadeIn {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(50px);
+
+    /* HARDWARE ACCELERATION FORCE */
+    transform: translate3d(0, 50px, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+    will-change: transform, opacity, visibility;
+
+    /* NO TRANSITION DI STATE AWAL */
+    transition: none !important;
+
+    /* Layer creation */
+    contain: layout style paint;
+    isolation: isolate;
+}
+
+/* STATE VISIBLE - Hanya di state inilah kita apply transition */
+.fadeIn.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translate3d(0, 0, 0);
+
+    /* TRANSITION HANYA DI STATE INI */
+    transition:
+        opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+        transform 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+        visibility 0.8s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Direction variants - TANPA ANIMATION, PAKAI TRANSITION SAJA */
+.fadeIn.up {
+    transform: translate3d(0, 50px, 0);
+}
+
+.fadeIn.up.visible {
+    transform: translate3d(0, 0, 0);
+}
+
+.fadeIn.left {
+    transform: translate3d(-80px, 0, 0);
+}
+
+.fadeIn.left.visible {
+    transform: translate3d(0, 0, 0);
+}
+
+.fadeIn.right {
+    transform: translate3d(80px, 0, 0);
+}
+
+.fadeIn.right.visible {
+    transform: translate3d(0, 0, 0);
+}
+
+/* HAPUS SEMUA KEYFRAMES - Kita pakai transition saja */
+/* Keyframes cause repaint dan bisa menyebabkan flicker */
+
+/* EXTREME BROWSER FIXES */
+@supports (-webkit-overflow-scrolling: touch) {
+
+    /* iOS fix */
+    .fadeIn {
+        -webkit-transform: translate3d(0, 50px, 0);
+        -webkit-backface-visibility: hidden;
+    }
+}
+
+/* Firefox fix */
+@-moz-document url-prefix() {
+    .fadeIn {
+        transform: translateY(50px);
+    }
+
+    .fadeIn.visible {
+        transform: translateY(0);
+    }
+}
+
+/* Mobile optimization */
+@media (max-width: 768px) {
+    .fadeIn {
+        transform: translate3d(0, 30px, 0);
+    }
+
+    .fadeIn.left {
+        transform: translate3d(-40px, 0, 0);
+    }
+
+    .fadeIn.right {
+        transform: translate3d(40px, 0, 0);
+    }
+
+    .fadeIn.visible {
+        transition-duration: 0.6s !important;
+    }
+}
+
+/* Nuclear option untuk browser lama */
+.fadeIn.visible {
+    animation: fadeInFix 0.001ms;
+}
+
+@keyframes fadeInFix {
+    from {
+        opacity: 0.999;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Reduced motion - HAPUS SEMUA ANIMASI */
+@media (prefers-reduced-motion: reduce) {
+    .fadeIn {
+        transform: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transition: none !important;
+        animation: none !important;
+    }
+}

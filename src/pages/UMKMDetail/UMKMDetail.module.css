@@ -1,0 +1,501 @@
+/* src/pages/UMKMDetail/UMKMDetail.module.css - UPDATE */
+.umkmDetail {
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  position: relative;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header Section */
+.header {
+  background: linear-gradient(135deg,
+      rgba(128, 0, 255, 0.12) 0%,
+      rgba(255, 0, 255, 0.08) 50%,
+      rgba(0, 100, 255, 0.06) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 24px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.coverImage {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.coverPlaceholder {
+  width: 100%;
+  height: 300px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+}
+
+.headerContent {
+  padding: 2rem;
+}
+
+.breadcrumb {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+.breadcrumb a {
+  color: var(--primary-purple);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.breadcrumb a:hover {
+  color: var(--purple-dark);
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+  background: linear-gradient(135deg, #7B1FA2 0%, #4527A0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.metaInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.category {
+  background: var(--primary-purple);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  align-self: flex-start;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.stars {
+  font-size: 1.2rem;
+}
+
+.ratingText {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text-primary);
+}
+
+/* Tab Navigation */
+.tabNavigation {
+  display: flex;
+  background: linear-gradient(135deg,
+      rgba(128, 0, 255, 0.12) 0%,
+      rgba(255, 0, 255, 0.08) 50%,
+      rgba(0, 100, 255, 0.06) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.tab {
+  flex: 1;
+  min-width: 120px;
+  padding: 1rem 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.tab:hover {
+  background: rgba(139, 92, 246, 0.1);
+  color: var(--text-primary);
+}
+
+.tab.active {
+  color: var(--primary-purple);
+  border-bottom-color: var(--primary-purple);
+  background: rgba(139, 92, 246, 0.15);
+}
+
+.tabContent {
+  min-height: 400px;
+}
+
+/* Detail Cards */
+.detailCard {
+  background: linear-gradient(135deg,
+      rgba(128, 0, 255, 0.12) 0%,
+      rgba(255, 0, 255, 0.08) 50%,
+      rgba(0, 100, 255, 0.06) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 24px;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.detailCard:hover {
+  transform: translateY(-5px);
+}
+
+.detailCard h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.detailGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.detailItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.detailItem:last-child {
+  border-bottom: none;
+}
+
+.detailItem strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.detailItem span {
+  color: var(--text-secondary);
+}
+
+/* Map Section */
+.mapContainer {
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.mapPlaceholder {
+  height: 300px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border-radius: 12px;
+}
+
+.mapContent {
+  text-align: center;
+  padding: 2rem;
+}
+
+.mapContent h4 {
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+}
+
+.mapContent p {
+  margin-bottom: 1rem;
+  opacity: 0.9;
+}
+
+/* Reviews Section */
+.addReviewCard {
+  background: linear-gradient(135deg,
+      rgba(128, 0, 255, 0.12) 0%,
+      rgba(255, 0, 255, 0.08) 50%,
+      rgba(0, 100, 255, 0.06) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 24px;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.reviewForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.ratingInput,
+.commentInput {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.ratingInput label,
+.commentInput label {
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.ratingSelect,
+.commentInput textarea {
+  padding: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+  resize: vertical;
+  backdrop-filter: blur(10px);
+}
+
+.commentInput textarea:focus,
+.ratingSelect:focus {
+  outline: none;
+  border-color: var(--primary-purple);
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+.reviewsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.reviewItem {
+  background: linear-gradient(135deg,
+      rgba(128, 0, 255, 0.08) 0%,
+      rgba(255, 0, 255, 0.06) 50%,
+      rgba(0, 100, 255, 0.04) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.reviewItem:hover {
+  transform: translateY(-2px);
+}
+
+.reviewHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.75rem;
+}
+
+.reviewerInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.reviewerName {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.reviewDate {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.reviewRating {
+  font-size: 1rem;
+}
+
+.reviewComment {
+  line-height: 1.6;
+  color: var(--text-primary);
+}
+
+.noReviews {
+  text-align: center;
+  padding: 3rem;
+  color: var(--text-secondary);
+}
+
+/* Loading and Error States */
+.notFound,
+.loading {
+  text-align: center;
+  padding: 3rem;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.notFound h2,
+.loading p {
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(255, 255, 255, 0.2);
+  border-left: 4px solid var(--primary-purple);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  .header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+
+  .coverImage,
+  .coverPlaceholder {
+    height: 400px;
+  }
+
+  .headerContent {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .metaInfo {
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .detailGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .detailItem {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .detailItem:last-child {
+    border-bottom: none;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .tabContent {
+    padding: 0;
+  }
+
+  .infoTab {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+  }
+}
+
+/* Tambahkan styles ini di UMKMDetail.module.css */
+
+.ratingDisplay {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.5rem 0;
+}
+
+.reviewCount {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+/* Form rating input */
+.ratingInput {
+  margin-bottom: 1rem;
+}
+
+.ratingInput label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+/* Review items */
+.reviewRating {
+  margin: 0.5rem 0;
+}
+
+.reviewHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+.reviewerInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.reviewerName {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.reviewDate {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
