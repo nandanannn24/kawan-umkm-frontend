@@ -1,21 +1,22 @@
 {
-  "name": "kawan-umkm-frontend",
-  "type": "module",
-  "version": "1.0.0",
-  "scripts": {
-    "dev": "vite --host",
-    "build": "vite build",
-    "preview": "vite preview --host"
-  },
-  "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.8.0",
-    "axios": "^1.13.2",
-    "framer-motion": "^12.23.24"
-  },
-  "devDependencies": {
-    "vite": "^4.4.5",
-    "@vitejs/plugin-react": "^4.0.3"
-  }
+    "name": "kawan-umkm-frontend",
+    "type": "module",
+    "version": "1.0.0",
+    "scripts": {
+        "dev": "vite --host",
+        "start": "vite --host",
+        "build": "vite build",
+        "preview": "vite preview --host"
+    },
+    "dependencies": {
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-router-dom": "^6.8.0",
+        "axios": "^1.13.2",
+        "framer-motion": "^12.23.24"
+    },
+    "devDependencies": {
+        "vite": "^4.4.5",
+        "@vitejs/plugin-react": "^4.0.3"
+    }
 }

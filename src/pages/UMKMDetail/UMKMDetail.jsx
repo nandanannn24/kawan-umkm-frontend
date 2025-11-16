@@ -96,9 +96,12 @@ const UMKMDetail = () => {
                     <div className={styles.header}>
                         {umkm.image_path ? (
                             <img
-                                src={`http://localhost:5000/uploads/images/${umkm.image_path}`}
+                                src={`https://kawan-umkm-backend-production.up.railway.app/api/uploads/images/${umkm.image_path}`}
                                 alt={umkm.name}
                                 className={styles.coverImage}
+                                onError={(e) => {
+                                    e.target.src = '/images/placeholder-umkm.jpg';
+                                }}
                             />
                         ) : (
                             <div className={styles.coverPlaceholder}>

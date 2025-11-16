@@ -401,3 +401,47 @@
     line-height: 1.7;
     text-align: center;
 }
+
+/* Tambahkan di About.module.css */
+
+.visionMissionGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.visionItem h3 {
+    font-size: 1.5rem;
+    color: #A56BFF;
+    margin-bottom: 1.5rem;
+}
+
+.visionItem p {
+    color: var(--text-muted);
+    line-height: 1.6;
+    font-size: 1.1rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+
+.visionItem p::before {
+    content: '✓';
+    color: #A56BFF;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+/* Untuk tampilan tablet dan desktop */
+@media (min-width: 768px) {
+    .visionMissionGrid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+    }
+
+    .visionItem p {
+        font-size: 1.125rem;
+    }
+}

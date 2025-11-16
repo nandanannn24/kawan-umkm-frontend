@@ -508,3 +508,35 @@
     color: var(--text-muted);
     font-size: 0.875rem;
 }
+
+/* Tambahkan margin untuk tombol tambah UMKM */
+.sectionHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.addButtonContainer {
+    margin-top: 1rem;
+    /* Memberikan jarak ke bawah */
+}
+
+/* Untuk tampilan mobile */
+@media (max-width: 768px) {
+    .sectionHeader {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+
+    .addButtonContainer {
+        margin-top: 0.5rem;
+        width: 100%;
+    }
+
+    .addButtonContainer .btn {
+        width: 100%;
+        text-align: center;
+    }
+}

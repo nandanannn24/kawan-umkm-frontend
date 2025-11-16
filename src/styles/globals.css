@@ -424,3 +424,38 @@ body {
     white-space: nowrap;
     border: 0;
 }
+
+/* FIX DOUBLE SCROLL BAR */
+html,
+body {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+}
+
+.app {
+    width: 100%;
+    overflow: hidden;
+}
+
+.main-content {
+    width: 100%;
+    overflow: visible;
+}
+
+/* Pastikan tidak ada element yang menyebabkan horizontal scroll */
+* {
+    max-width: 100%;
+}
+
+/* Fix untuk BackgroundElements jika ada yang keluar dari viewport */
+.background-elements {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+}

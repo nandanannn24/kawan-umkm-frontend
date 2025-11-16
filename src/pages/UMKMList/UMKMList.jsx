@@ -20,12 +20,15 @@ const UMKMList = () => {
         const fetchUMKM = async () => {
             try {
                 setLoading(true);
+                console.log('🔄 Fetching UMKM data...');
                 const response = await umkmAPI.getAll();
+                console.log('✅ UMKM data received:', response.data);
                 setUmkmList(response.data);
                 setFilteredUMKM(response.data);
             } catch (err) {
-                setError('Gagal memuat data UMKM');
-                console.error('Error fetching UMKM:', err);
+                console.error('❌ Error fetching UMKM:', err);
+                console.error('Error details:', err.response?.data);
+                setError('Gagal memuat data UMKM: ' + (err.response?.data?.error || err.message));
             } finally {
                 setLoading(false);
             }
@@ -92,7 +95,7 @@ const UMKMList = () => {
                 {/* Search and Filter Section */}
                 <div className={styles.controls}>
                     <div className={styles.searchBox}>
-                        
+
                         <input
                             type="text"
                             placeholder="Cari UMKM..."
@@ -138,9 +141,12 @@ const UMKMList = () => {
                             <div className={styles.imageContainer}>
                                 {umkm.image_path ? (
                                     <img
-                                        src={`http://localhost:5000/uploads/images/${umkm.image_path}`}
+                                        src={`https://kawan-umkm-backend-production.up.railway.app/api/uploads/images/${umkm.image_path}`}
                                         alt={umkm.name}
                                         className={styles.umkmImage}
+                                        onError={(e) => {
+                                            e.target.src = '/images/placeholder-umkm.jpg';
+                                        }}
                                     />
                                 ) : (
                                     <div className={styles.imagePlaceholder}>

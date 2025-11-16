@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
-import { umkmAPI } from '../../services/api'; 
+import { umkmAPI } from '../../services/api';
 import styles from './Dashboard.module.css';
 
 const UMKMDashboard = () => {
@@ -152,12 +152,13 @@ const UMKMDashboard = () => {
                             </div>
 
                             {myUMKM.length === 0 && (
-                                <div className={styles.emptyState}>
-                                    <h4>Belum ada UMKM</h4>
-                                    <p>Tambahkan UMKM pertama Anda untuk memulai</p>
-                                    <Link to="/create-umkm" className="btn btn-primary">
-                                        + Tambah UMKM
-                                    </Link>
+                                <div className={styles.sectionHeader}>
+                                    <h3>Kelola UMKM</h3>
+                                    <div className={styles.addButtonContainer}>
+                                        <Link to="/create-umkm" className="btn btn-primary">
+                                            + Tambah UMKM Baru
+                                        </Link>
+                                    </div>
                                 </div>
                             )}
                         </div>

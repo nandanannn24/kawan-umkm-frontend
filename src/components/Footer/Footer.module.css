@@ -115,3 +115,62 @@
         padding: 4rem 0 1.5rem;
     }
 }
+
+/* Style untuk contact items yang bisa diklik */
+.contactItem {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin: 0;
+    padding: 0.25rem 0;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.contactItem:hover {
+    color: var(--primary-purple);
+    transform: translateX(5px);
+}
+
+/* Style untuk notifikasi copy success */
+.copySuccess {
+    background: var(--primary-purple);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+    animation: fadeInOut 2s ease-in-out;
+}
+
+@keyframes fadeInOut {
+
+    0%,
+    100% {
+        opacity: 0;
+    }
+
+    10%,
+    90% {
+        opacity: 1;
+    }
+}
+
+/* Pastikan contact info layout tetap bagus */
+.contactInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.contactInfo p:last-child {
+    cursor: default;
+}
+
+.contactInfo p:last-child:hover {
+    color: var(--text-secondary);
+    transform: none;
+}

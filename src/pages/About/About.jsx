@@ -23,7 +23,18 @@ const About = () => {
                 {/* Visi Misi */}
                 <FadeIn as="section" direction="up" className={styles.visionMission}>
                     <h2 className={styles.sectionTitle}>Visi dan Misi Kawan UMKM</h2>
-                    <div className={styles.missionList}>
+                    <div className={styles.visionMissionGrid}>
+                        {/* Visi */}
+                        <div className={styles.visionItem}>
+                            <h3>Visi</h3>
+                            <p>
+                                Menjadi platform digital terdepan yang memberdayakan UMKM tradisional Indonesia
+                                untuk bertransformasi ke ekosistem digital modern, meningkatkan daya saing,
+                                dan memperluas jangkauan pasar secara berkelanjutan.
+                            </p>
+                        </div>
+
+                        {/* Misi */}
                         <div className={styles.missionItem}>
                             <h3>Misi</h3>
                             <ul>

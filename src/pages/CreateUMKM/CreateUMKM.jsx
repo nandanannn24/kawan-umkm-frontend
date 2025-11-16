@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../../hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
-import { umkmAPI } from '../../services/api'; // IMPORT INI
+import { umkmAPI } from '../../services/api';
 import styles from './CreateUMKM.module.css';
 
 const CreateUMKM = () => {
@@ -10,13 +10,13 @@ const CreateUMKM = () => {
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState({ type: '', text: '' });
 
+    // FIXED: Changed 'phone' to 'contact' to match backend
     const [formData, setFormData] = useState({
         name: '',
         category: '',
         description: '',
         address: '',
-        phone: '',
-        hours: '',
+        contact: '', // Changed from 'phone' to 'contact'
         latitude: '',
         longitude: ''
     });
@@ -31,30 +31,65 @@ const CreateUMKM = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        // Validate form
+        if (!formData.name || !formData.category || !formData.address || !formData.contact) {
+            setMessage({ type: 'error', text: 'Harap isi semua field yang wajib diisi!' });
+            return;
+        }
+
+        if (!image) {
+            setMessage({ type: 'error', text: 'Harap pilih gambar UMKM!' });
+            return;
+        }
+
         setLoading(true);
+        setMessage({ type: '', text: '' });
 
         console.log('🔄 Submitting UMKM form...');
         console.log('Form data:', formData);
         console.log('Image:', image);
 
-        const submitData = new FormData();
-        Object.keys(formData).forEach(key => {
-            if (formData[key]) {
-                submitData.append(key, formData[key]);
-            }
-        });
-
-        if (image) {
-            submitData.append('image', image);
-        }
-
         try {
-            // GUNAKAN umkmAPI.create() BUKAN fetch langsung
+            const submitData = new FormData();
+
+            // Append form data with CORRECT field names
+            submitData.append('name', formData.name);
+            submitData.append('category', formData.category);
+            submitData.append('description', formData.description || '');
+            submitData.append('address', formData.address);
+            submitData.append('contact', formData.contact); // Correct field name
+            submitData.append('latitude', formData.latitude || '');
+            submitData.append('longitude', formData.longitude || '');
+
+            // Append image
+            submitData.append('image', image);
+
             console.log('📤 Sending UMKM data via umkmAPI...');
+
+            // Debug: Log FormData contents
+            for (let [key, value] of submitData.entries()) {
+                console.log(`FormData: ${key} =`, value);
+            }
+
             const response = await umkmAPI.create(submitData);
 
             console.log('✅ UMKM created successfully:', response.data);
             setMessage({ type: 'success', text: 'UMKM berhasil dibuat!' });
+
+            // Reset form
+            setFormData({
+                name: '',
+                category: '',
+                description: '',
+                address: '',
+                contact: '',
+                latitude: '',
+                longitude: ''
+            });
+            setImage(null);
+
+            // Redirect after 2 seconds
             setTimeout(() => navigate('/umkm'), 2000);
 
         } catch (error) {
@@ -75,7 +110,23 @@ const CreateUMKM = () => {
     };
 
     const handleImageChange = (e) => {
-        setImage(e.target.files[0]);
+        const file = e.target.files[0];
+        if (file) {
+            // Basic image validation
+            const validTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif', 'image/webp'];
+            if (!validTypes.includes(file.type)) {
+                setMessage({ type: 'error', text: 'Format file tidak didukung. Gunakan JPG, PNG, GIF, atau WebP.' });
+                return;
+            }
+
+            if (file.size > 5 * 1024 * 1024) {
+                setMessage({ type: 'error', text: 'Ukuran file terlalu besar. Maksimal 5MB.' });
+                return;
+            }
+
+            setImage(file);
+            setMessage({ type: '', text: '' });
+        }
     };
 
     // Check if user has permission
@@ -172,41 +223,34 @@ const CreateUMKM = () => {
                                 />
                             </div>
 
+                            {/* FIXED: Changed from 'phone' to 'contact' */}
                             <div className={styles.formGroup}>
-                                <label htmlFor="phone">Nomor Telepon</label>
+                                <label htmlFor="contact">Nomor Telepon *</label>
                                 <input
                                     type="tel"
-                                    id="phone"
-                                    name="phone"
-                                    value={formData.phone}
+                                    id="contact"
+                                    name="contact"
+                                    value={formData.contact}
                                     onChange={handleChange}
+                                    required
                                     placeholder="Contoh: 081234567890"
                                     className={styles.input}
                                 />
                             </div>
 
-                            <div className={styles.formGroup}>
-                                <label htmlFor="hours">Jam Operasional</label>
-                                <input
-                                    type="text"
-                                    id="hours"
-                                    name="hours"
-                                    value={formData.hours}
-                                    onChange={handleChange}
-                                    placeholder="Contoh: 08:00 - 17:00"
-                                    className={styles.input}
-                                />
-                            </div>
-
                             <div className={`${styles.formGroup} ${styles.fullWidth}`}>
-                                <label htmlFor="image">Gambar UMKM</label>
+                                <label htmlFor="image">Gambar UMKM *</label>
                                 <input
                                     type="file"
                                     id="image"
                                     accept="image/*"
                                     onChange={handleImageChange}
+                                    required
                                     className={styles.fileInput}
                                 />
+                                <small className={styles.helperText}>
+                                    Format: JPG, PNG, GIF, WebP (maksimal 5MB)
+                                </small>
                             </div>
 
                             <div className={styles.formGroup}>
