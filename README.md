@@ -1,1 +1,0 @@
-# kawan-umkm-frontend
